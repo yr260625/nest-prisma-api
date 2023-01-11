@@ -18,6 +18,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     email: string;
     sub: string;
   }): Promise<User | null> {
+    console.log('JwtStrategy.validate');
     return this.usersService.user({ email: payload.email });
   }
 }
