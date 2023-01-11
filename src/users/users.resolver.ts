@@ -14,6 +14,7 @@ export class UsersResolver {
   @Query(() => User)
   @UseGuards(JwtAuthGuard)
   async user(@Args() args: GetUserArgs) {
+    console.log('UsersResolver.user');
     return this.userService.user(args);
   }
 

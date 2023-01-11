@@ -6,7 +6,6 @@ type User {
   id: ID!
   email: String!
   name: String!
-  password: String!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -21,16 +20,22 @@ type LoginResponse {
   user: User!
 }
 
+type Task {
+  id: ID!
+  title: String!
+  content: String
+  finished: Boolean!
+  author: User
+  authorId: Float
+}
+
 type Query {
   user(id: Float, email: String): User!
+  findOwnTasks: [Task!]!
 }
 
 type Mutation {
   createUser(email: String!, name: String!, password: String!): User!
-  login(loginUserInput: LoginUserInput!): LoginResponse!
-}
-
-input LoginUserInput {
-  email: String!
-  password: String!
+  login(email: String!, password: String!): LoginResponse!
+  createOwnTask(title: String!, content: String!, finished: Boolean): Task!
 }

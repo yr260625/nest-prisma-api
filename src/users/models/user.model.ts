@@ -8,8 +8,6 @@ export class User {
   email: string;
   @Field()
   name: string;
-  @Field({ nullable: false })
-  password: string;
   createdAt: Date;
   updatedAt: Date;
 }
